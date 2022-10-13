@@ -1,0 +1,90 @@
+$main-background-theme3: hsl(268, 75%, 9%);
+$secondary-background-theme3: hsl(268, 71%, 12%);
+$button-color-secondary-theme3: hsl(176, 100%, 44%);
+
+@mixin theme3 {
+  .theme3 {
+    background-color: $main-background-theme3;
+
+    // estilos de cambio de temas
+    .themes-container {
+      color: hsl(52, 100%, 62%);
+
+      .themes {
+        .slide-themes {
+          .slide {
+            background-color: $secondary-background-theme3;
+
+            .button-theme1 {
+              visibility: hidden;
+            }
+            .button-theme2 {
+              visibility: hidden;
+            }
+            .button-theme3 {
+              background-color: $button-color-secondary-theme3;
+              &:hover {
+                background-color: hsl(176, 100%, 52%);
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+    // estilos de la calculadora
+    .calculator {
+      .result-container {
+        background-color: hsl(268, 71%, 12%);
+        color: hsl(52, 100%, 62%);
+      }
+
+      .buttons-container {
+        background-color: $secondary-background-theme3;
+        .buttons1 {
+          .key {
+            color: hsl(52, 100%, 62%);
+            background-color: hsl(268, 47%, 21%);
+            box-shadow: 0px 4px 1px hsl(290, 70%, 36%);
+            &:hover {
+                background-color: hsl(268, 54%, 44%);
+                cursor: pointer;
+              }
+          }
+
+          .del {
+            color: white;
+            background-color: hsl(281, 89%, 26%);
+            box-shadow: 0px 4px 1px hsl(285, 91%, 52%);
+            &:hover {
+                background-color: hsl(280,56%,44%);
+                cursor: pointer;
+              }
+          }
+        }
+
+        .buttons2 {
+          .reset {
+            color: white;
+            background-color: hsl(281, 89%, 26%);
+            box-shadow: 0px 4px 1px hsl(285, 91%, 52%);
+            &:hover {
+                background-color: hsl(280,56%,44%);
+                cursor: pointer;
+              }
+          }
+
+          .igual {
+            color: black;
+            background-color: hsl(176, 100%, 44%);
+            box-shadow: 0px 4px 1px hsl(177, 92%, 70%);
+            &:hover {
+                background-color: hsl(176, 100%, 52%);
+                cursor: pointer;
+              }
+          }
+        }
+      }
+    }
+  }
+}
