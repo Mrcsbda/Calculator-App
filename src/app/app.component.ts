@@ -193,7 +193,6 @@ export class AppComponent {
           this.add = false;
         }
         this.result = '0';
-        console.log(this.values)
         this.add = true;
         break;
 
@@ -229,7 +228,6 @@ export class AppComponent {
           this.subtract = false;
         }
         this.result = '0';
-        console.log(this.values)
         this.subtract = true;
         break;
 
@@ -268,7 +266,6 @@ export class AppComponent {
           this.split = false;
         }
         this.result = '0';
-        console.log(this.values)
         this.split = true;
         break;
 
@@ -307,7 +304,6 @@ export class AppComponent {
           this.multiply = false;
         }
         this.result = '0';
-        console.log(this.values)
         this.multiply = true;
         break;
 
@@ -328,9 +324,8 @@ export class AppComponent {
         break;
 
       default:
+        this.values.push(Number(this.result));
         if (this.add) {
-          this.values.push(Number(this.result));
-          this.result = '0';
           this.value = this.values.reduce(
             (previousValue, currentValue) => previousValue + currentValue
           );
@@ -339,8 +334,6 @@ export class AppComponent {
           this.add = false;
 
         } else if (this.subtract) {
-          this.values.push(Number(this.result));
-          this.result = '0';
           this.value = this.values.reduce(
             (previousValue, currentValue) => previousValue - currentValue
           );
@@ -349,8 +342,6 @@ export class AppComponent {
           this.subtract = false;
 
         } else if (this.split) {
-          this.values.push(Number(this.result));
-          this.result = '0';
           this.value = this.values.reduce(
             (previousValue, currentValue) => previousValue / currentValue
           );
@@ -359,8 +350,6 @@ export class AppComponent {
           this.split = false;
 
         } else if (this.multiply) {
-          this.values.push(Number(this.result));
-          this.result = '0';
           this.value = this.values.reduce(
             (previousValue, currentValue) => previousValue * currentValue
           );
