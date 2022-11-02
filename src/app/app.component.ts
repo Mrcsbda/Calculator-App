@@ -93,6 +93,7 @@ export class AppComponent {
   subtract: boolean = false;
   split: boolean = false;
   multiply: boolean = false;
+  equal: boolean = false;
 
   change() {
     if (this.theme1) {
@@ -117,42 +118,92 @@ export class AppComponent {
 
     switch (valor) {
       case 1:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 2:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 3:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 4:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 5:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 6:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 7:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 8:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
       case 9:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case 0:
-        this.result += valor.toString();
+        if(this.equal) {
+          this.result = valor.toString()
+        } else  {
+          this.result += valor.toString();
+        } 
+        this.equal = false;
         break;
 
       case '.':
@@ -360,6 +411,7 @@ export class AppComponent {
           this.result = 'Error';
         }
         this.result = this.values[0].toString();
+        this.equal = true;
         break;
     }
   }
