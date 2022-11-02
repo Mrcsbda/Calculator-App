@@ -88,6 +88,7 @@ export class AppComponent {
   result: string = '0';
   values: number[] = [];
   value: number = 0;
+
   add: boolean = false;
   subtract: boolean = false;
   split: boolean = false;
@@ -159,13 +160,155 @@ export class AppComponent {
           this.result += valor.toString();
         }
         break;
-        
+
       case '+':
+        this.values.push(Number(this.result));
+        if (this.subtract) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue - currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.subtract = false;
+        } else if (this.split) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue / currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.split = false;
+        } else if (this.multiply) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue * currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.multiply = false;
+        } else if (this.add) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.add = false;
+        }
+        this.result = '0';
+        console.log(this.values)
         this.add = true;
         break;
 
       case '-':
+        this.values.push(Number(this.result));
+        if (this.add) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.add = false;
+        } else if (this.split) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue / currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.split = false;
+        } else if (this.multiply) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue * currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.multiply = false;
+        } else if (this.subtract) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue - currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.subtract = false;
+        }
+        this.result = '0';
+        console.log(this.values)
         this.subtract = true;
+        break;
+
+      case '/':
+        this.values.push(Number(this.result));
+        if (this.add) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.add = false;
+
+        } else if (this.subtract) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue - currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.subtract = false;
+
+        } else if (this.multiply) {;
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue * currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.multiply = false;
+
+        } else if (this.split) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue / currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.split = false;
+        }
+        this.result = '0';
+        console.log(this.values)
+        this.split = true;
+        break;
+
+      case 'x':
+        this.values.push(Number(this.result));
+        if (this.add) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.add = false;
+
+        } else if (this.subtract) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue - currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.subtract = false;
+
+        } else if (this.split) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue / currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.split = false;
+
+        } else if (this.multiply) {
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue * currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.multiply = false;
+        }
+        this.result = '0';
+        console.log(this.values)
+        this.multiply = true;
         break;
 
       case 'DEL':
@@ -176,32 +319,59 @@ export class AppComponent {
         break;
 
       case 'RESET':
+        this.values = [];
         this.result = '0';
+        this.add = false;
+        this.subtract = false;
+        this.split = false;
+        this.multiply = false;
         break;
 
       default:
+        if (this.add) {
+          this.values.push(Number(this.result));
+          this.result = '0';
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.add = false;
+
+        } else if (this.subtract) {
+          this.values.push(Number(this.result));
+          this.result = '0';
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue - currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.subtract = false;
+
+        } else if (this.split) {
+          this.values.push(Number(this.result));
+          this.result = '0';
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue / currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.split = false;
+
+        } else if (this.multiply) {
+          this.values.push(Number(this.result));
+          this.result = '0';
+          this.value = this.values.reduce(
+            (previousValue, currentValue) => previousValue * currentValue
+          );
+          this.values = [];
+          this.values.push(this.value);
+          this.multiply = false;
+        } else if (this.values = [] ) {
+          this.result = 'Error';
+        }
         this.result = this.values[0].toString();
         break;
-    }
-
-    if (this.add) {
-      this.values.push(Number(this.result));
-      this.result = '0';
-      this.value = this.values.reduce(
-        (previousValue, currentValue) => previousValue + currentValue
-      );
-      this.values = [];
-      this.values.push(this.value);
-      console.log(this.values);
-    } else if (this.subtract) {
-      this.values.push(Number(this.result));
-      this.result = '0';
-      this.value = this.values.reduce(
-        (previousValue, currentValue) => previousValue - currentValue
-      );
-      this.values = [];
-      this.values.push(this.value);
-      console.log(this.values);
     }
   }
 }
