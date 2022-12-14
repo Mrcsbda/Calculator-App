@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  x = 'hola mundo';
   theme1: boolean = true;
   theme2: boolean = false;
   theme3: boolean = false;

@@ -27,7 +27,7 @@
     </div>
 
     <div class="calculator">
-      <div class="result-container">{{result}}</div>
+      <div class="result-container">{{result|number}}</div>
       <div class="buttons-container">
         <div class="buttons1">
           <div class="{{ key.class }}" *ngFor="let key of keys" (click)="calculate(key.key)">
