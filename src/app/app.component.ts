@@ -245,6 +245,7 @@ export class AppComponent {
         }
         this.result = '0';
         this.add = true;
+        console.log(this.values)
         break;
 
       case '-':
@@ -280,6 +281,7 @@ export class AppComponent {
         }
         this.result = '0';
         this.subtract = true;
+        console.log(this.values)
         break;
 
       case '/':
@@ -318,6 +320,7 @@ export class AppComponent {
         }
         this.result = '0';
         this.split = true;
+        console.log(this.values)
         break;
 
       case 'x':
@@ -356,6 +359,7 @@ export class AppComponent {
         }
         this.result = '0';
         this.multiply = true;
+        console.log(this.values)
         break;
 
       case 'DEL':
@@ -375,13 +379,13 @@ export class AppComponent {
         break;
 
       default:
+       
         this.values.push(Number(this.result));
         if (this.add) {
           this.value = this.values.reduce(
             (previousValue, currentValue) => previousValue + currentValue
           );
           this.values = [];
-          this.values.push(this.value);
           this.add = false;
 
         } else if (this.subtract) {
@@ -389,7 +393,6 @@ export class AppComponent {
             (previousValue, currentValue) => previousValue - currentValue
           );
           this.values = [];
-          this.values.push(this.value);
           this.subtract = false;
 
         } else if (this.split) {
@@ -397,7 +400,6 @@ export class AppComponent {
             (previousValue, currentValue) => previousValue / currentValue
           );
           this.values = [];
-          this.values.push(this.value);
           this.split = false;
 
         } else if (this.multiply) {
@@ -405,13 +407,14 @@ export class AppComponent {
             (previousValue, currentValue) => previousValue * currentValue
           );
           this.values = [];
-          this.values.push(this.value);
           this.multiply = false;
-        } else if (this.values = [] ) {
-          this.result = 'Error';
+        } else if (this.values.length = 0 ) {
+          this.result = 'ERROR';
         }
-        this.result = this.values[0].toString();
+
+        this.result = this.value.toString();
         this.equal = true;
+        console.log(this.values)
         break;
     }
   }
