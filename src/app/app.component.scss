@@ -101,6 +101,7 @@
         .buttons1 {
           gap: 11px;
           display: grid;
+          justify-content: center;
           grid-template-columns: 22% 22% 22% 22%;
 
           div {
@@ -126,6 +127,7 @@
           gap: 13px;
           display: grid;
           margin-top: 15px;
+          justify-content: center;
           grid-template-columns: 48% 48%;
 
           div {
